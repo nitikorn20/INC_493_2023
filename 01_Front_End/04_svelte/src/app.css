@@ -1,0 +1,25 @@
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* CSS */
+body{
+    background-color: #222;
+    color: #fff;
+    padding:0;
+    margin:0;
+}
+
+
+.btn-led-inv{
+    @apply md:h-24 lg:h-32 w-1/4 mx-1 px-3 py-2 rounded-md hover:text-yellow-200 hover:bg-black active:text-red-500 active:bg-blue-900;
+}
+
+.btn-container {
+    @apply flex w-full bg-stone-700 m-2 p-4 rounded-lg items-center justify-evenly
+}

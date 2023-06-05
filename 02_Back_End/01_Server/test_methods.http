@@ -1,0 +1,52 @@
+@hostname = 127.0.0.1
+@port = 3300
+@host = {{hostname}}:{{port}}
+@id = 1
+
+# ***Sample GET all data request
+
+GET http://{{host}}/resources 
+
+# ***Sample GET some data request
+
+//GET http://{{host}}/resources/{{id}}
+
+# ***Sample POST request
+
+//POST http://{{host}}/resources 
+
+# ***Sample POST send Data
+
+# POST http://{{host}}/resources
+# Content-Type: application/json
+
+# {
+#   "age": 20,
+#   "name": "Jude Ward",
+#   "grade":70.5
+# }
+
+# ***Sample PUT send Data
+
+# PUT http://{{host}}/resources/{{id}}
+# Content-Type: application/json
+
+# {
+#   "age": 20,
+#   "name": "Jude Ward",
+#   "grade":70.5
+# }
+
+# ***Sample PATCH send Data
+
+# PATCH http://{{host}}/resources/{{id}}
+# Content-Type: application/json
+
+# {
+#   "grade":70.5
+# }
+
+# ***Sample DELETE send Data
+
+//DELETE http://{{host}}/resources/{{id}}
+
