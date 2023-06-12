@@ -29,11 +29,11 @@
 <!------------------------- HTML ------------------------->
 
 <div class="flex justify-center m-2">
-	<div id="box1" class="flex justify-center w-2/3">
+	<div class="flex justify-center w-2/3">
 		<div class="flex flex-col w-full">
-			<div id="box2" class=" flex justify-center"><h1>Input Box (Keyevent)</h1></div>
+			<div class=" flex justify-center"><h1>Input Box (Keyevent)</h1></div>
 			<div class="flex flex-row">
-				<div id="box3" class="flex w-fit"><p>Enter your data:</p></div>
+				<div class="flex w-fit"><p>Enter your data:</p></div>
 				<div class="flex-auto">
 					<input
 						type="text"
@@ -51,9 +51,9 @@
 <div class="flex justify-center m-2">
 	<div id="box1" class="flex justify-center w-2/3">
 		<div class="flex flex-col w-full">
-			<div id="box2" class=" flex justify-center"><h1>Input Box (Click)</h1></div>
+			<div class=" flex justify-center"><h1>Input Box (Click)</h1></div>
 			<div class="flex flex-row">
-				<div id="box3" class="flex justify-center w-1/3"><p>Enter your data:</p></div>
+				<div class="flex justify-end w-fit"><p>Enter your data:</p></div>
 				<div class="flex-auto">
 					<input type="text" bind:value={Inputbox2} class="w-full text-black" />
 				</div>
@@ -65,11 +65,11 @@
 </div>
 
 <div class="flex justify-center m-2">
-	<div id="box1" class="flex justify-center w-2/3">
+	<div class="flex justify-center w-2/3">
 		<div class="flex flex-col w-full">
-			<div id="box2" class="flex justify-center"><h1>Combobox (handle Select)</h1></div>
+			<div class=" flex justify-center"><h1>Combobox (handle Select)</h1></div>
 			<div class="flex flex-row">
-				<div id="box3" class="flex justify-end w-fit"><p>Enter your data:</p></div>
+				<div class="flex justify-end w-fit"><p>Enter your data:</p></div>
 				<div class="flex-auto">
 					<select class=" text-black w-full" bind:value={selectedValue} on:change={handleSelect}>
 						<option value="">Select an option</option>
@@ -86,6 +86,7 @@
 	</div>
 </div>
 
+
 <!------------------------ style ------------------------->
 <style>
 	/* CSS can be added here */
@@ -95,21 +96,6 @@
 	} */
 
 	#box1 {
-		@apply bg-amber-900  rounded-lg;
-	}
-	#box2 {
-		@apply bg-amber-300 rounded-t-lg;
-	}
-	#box3 {
-		@apply bg-amber-600;
-	}
-	button {
-		@apply bg-emerald-700;
-	}
-	input {
-		@apply bg-amber-100;
-	}
-	select {
-		@apply bg-amber-100;
+		@apply px-1 border bg-amber-700  rounded-md;
 	}
 </style>

@@ -12,3 +12,6 @@
 
 ---
 
+## Video
+
+:video: [List video](https://drive.google.com/drive/folders/1NVBCgOOd-o96tdjy9n2p424FiZyCidJK?usp=sharing)
