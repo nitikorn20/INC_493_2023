@@ -3,19 +3,9 @@
 @host = {{hostname}}:{{port}}
 @id = 1
 
-POST http://127.0.0.1:3300/resources
-Content-Type: application/json
-
-{
-    "name":"Red",
-    "age":27,
-    "grade":86.3,
-    "surname":"Blue"
-}
-
 # ***Sample GET all data request
 
-# GET http://{{host}}/resources 
+GET http://{{host}}/resources 
 
 # ***Sample GET some data request
 
