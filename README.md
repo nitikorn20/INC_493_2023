@@ -1,6 +1,6 @@
 # INC-WILL-2023
 
-> News, Documents, Videos and other resources for INC-Will-2023 will be provided in this repository.
+> News, Documents and other resources for INC-493-2023 will be provided in this repository.
 
 ## Tools
 
