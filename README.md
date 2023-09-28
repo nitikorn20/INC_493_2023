@@ -8,7 +8,7 @@
 
 :computer: [PostgreSQL (15.3-1)](https://www.postgresql.org/download/)
 
-:computer: [MongoDB  Community Edition]([https://www.postgresql.org/download/](https://www.mongodb.com/docs/manual/administration/install-community/#std-label-install-mdb-community-edition))
+:computer: [MongoDB  Community Edition](https://www.mongodb.com/docs/manual/administration/install-community/#std-label-install-mdb-community-edition)
 
 :computer: [Visual Studio Code](https://code.visualstudio.com/)
 
