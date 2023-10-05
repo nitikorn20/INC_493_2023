@@ -22,18 +22,16 @@ mongoose
   .then(() => {
     console.log("Connected to MongoDB");
 
-    //Define the query
-    let query = { age: { $eq: 30 } }; // age = 30
-
-    // Delete user documents matching the query
-
-    // If you want to delect more than one data you can use: User.deleteMany(query) 
-    User.deleteOne(query)
-      .then((result) => {
-        console.log(`${result.deletedCount} user(s) deleted`);
+    // Retrieve all user documents and sort ascending
+    // asc (ascending) , desc (descending)
+    User.find()
+      .sort({ age: "asc" }) //if you want to sort
+      .limit(2) // if you want to limit data to query
+      .then((users) => {
+        console.log("All users:", users);
       })
       .catch((err) => {
-        console.error("Error deleting users:", err);
+        console.error("Error retrieving users:", err);
       })
       .finally(() => {
         // Close the MongoDB connection
