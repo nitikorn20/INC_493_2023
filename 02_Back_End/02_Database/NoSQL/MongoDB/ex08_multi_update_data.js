@@ -23,17 +23,20 @@ mongoose
     console.log("Connected to MongoDB");
 
     //Define the query
-    let query = { age: { $eq: 30 } }; // age = 30
 
-    // Delete user documents matching the query
+    let query = {}; // Update not have condition
+    // Define the update
+    const update = { age: 22 }; // updata age of all student to 22
 
-    // If you want to delect more than one data you can use: User.deleteMany(query) 
-    User.deleteOne(query)
-      .then((result) => {
-        console.log(`${result.deletedCount} user(s) deleted`);
+    // Retrieve user documents matching the query
+
+    User.updateMany(query, update)
+      .then((users) => {
+        console.log("Update :", users);
+        console.log("=========================================");
       })
       .catch((err) => {
-        console.error("Error deleting users:", err);
+        console.error("Error retrieving users:", err);
       })
       .finally(() => {
         // Close the MongoDB connection
