@@ -1,0 +1,13 @@
+@hostname = 127.0.0.1
+@port = 9000
+
+@host = {{hostname}}:{{port}}
+
+POST  http://{{host}}/1students
+Content-Type: application/json
+
+{
+    "name":"Test",
+    "age":100,
+    "email":"test@gmail.com"
+}
