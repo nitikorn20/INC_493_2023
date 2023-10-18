@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Example Get Data</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+      <h1>UI Get data from MongoDB</h1>
+      <p>
+        ตัวอย่างนี้จะเป็นการอ่านค่าจาก MongoDB
+        โดยสามารถหาข้อมูลของนักเรียนที่เราต้องการ
+      </p>
+    </div>
+
+    <div class="container mt-5">
+      <div>
+        <h3 class="text-center">Search by Name</h3>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default"
+            >Name</span
+          >
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter your student name."
+            id="input_name"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            onclick="Get_Student_Data()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+
+      <div class="container px-4">
+        <div class="row gx-5">
+          <div class="col">
+            <p class="input-group-text" id="p_email">Email = null</p>
+          </div>
+          <div class="col">
+            <p class="input-group-text" id="p_age">Age = null</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function Get_Student_Data() {
+      let _input_name = document.getElementById("input_name").value;
+      console.log(["input value", _input_name]);
+      const api = "http://localhost:9000/student/" + _input_name;
+      console.log(["Api", api]);
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          // Typical action to be performed when the document is ready:
+          let _res_data = JSON.parse(xhttp.responseText);
+          console.log(_res_data);
+          if (_res_data.length > 0) {
+            document.getElementById("p_email").innerHTML = "Email = "+_res_data[0].email;
+            document.getElementById("p_age").innerHTML = "Age = "+_res_data[0].age;
+          } else {
+            console.log("This information of student is not available.");
+          }
+        } else if (this.status == 404) {
+          console.log("ERROR");
+        }
+      };
+      xhttp.open("GET", api, true);
+      xhttp.send();
+    }
+  </script>
+</html>
