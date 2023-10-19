@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Student</title>
+  </head>
+  <body>
+    <div>
+      <span>Name:</span>
+      <input type="text" id="input_name" />
+    </div>
+    <div>
+      <span>Email:</span>
+      <input type="text" id="input_email" />
+    </div>
+    <div>
+      <span>Age:</span>
+      <input type="number" min="1" id="input_age" />
+    </div>
+    <button onclick="Create_Data()">Submit</button>
+  </body>
+
+  <script>
+    function Create_Data() {
+      let _name = document.getElementById("input_name").value;
+      let _age = document.getElementById("input_age").value;
+      let _email = document.getElementById("input_email").value;
+
+      let json_data = {
+        name: _name,
+        age: _age,
+        email: _email,
+      };
+
+      console.log(json_data);
+
+      let json_string = JSON.stringify(json_data);
+
+      console.log(json_string);
+
+      const api = "http://localhost:9000/student/";
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let _res_data = xhttp.responseText;
+            console.log(_res_data);
+        }
+      };
+      xhttp.open("POST", api, true);
+      xhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+      xhttp.send(json_string);
+    }
+  </script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GET Student data By name</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="input_name" />
+      <button onclick="Get_Data_By_Name()">Search</button>
+    </div>
+
+    <p id="p_email">Email is Null</p>
+    <p id="p_age">Age is Null</p>
+  </body>
+
+  <script>
+    function Get_Data_By_Name() {
+      let enter_name = document.getElementById("input_name").value;
+      let api = "http://localhost:9000/student/" + enter_name;
+      console.log([enter_name, api]);
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          // Typical action to be performed when the document is ready:
+          let _result = xhttp.responseText;
+          let json_result = JSON.parse(_result);
+          let length_data = json_result.length;
+
+          if (length_data == 1) {
+            console.log(json_result[0]);
+
+            let _age = json_result[0].age;
+            let _email = json_result[0].email;
+
+            document.getElementById("p_age").innerHTML = "Age is " + _age;
+            document.getElementById("p_email").innerHTML = "Email is " + _email;
+            
+          } else {
+            // หาไม่เจอ
+            alert("ไม่มีชื่อนี้ในฐานข้อมูล");
+            document.getElementById("p_age").innerHTML = "Age is Null"; 
+            document.getElementById("p_email").innerHTML = "Email Null" ;
+          }
+        }
+      };
+      xhttp.open("GET", api, true);
+      xhttp.send();
+    }
+  </script>
+</html>

@@ -3,8 +3,11 @@
 
 @host = {{hostname}}:{{port}}
 
-DELETE   http://{{host}}/student/แดง
+POST   http://{{host}}/student/
 Content-Type: application/json
 
 {
+    "name":"Red",
+    "age":27,
+    "email":"Red@gmail.com"
 }

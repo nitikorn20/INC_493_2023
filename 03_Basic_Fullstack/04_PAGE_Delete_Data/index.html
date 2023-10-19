@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Student</title>
+  </head>
+  <body>
+    <div>
+      <span> Enter Name:</span>
+      <input type="text" id="input_name" />
+      <button onclick="Check_Data()">Check</button>
+    </div>
+
+    <button disabled="true" onclick="Delete_Data()" id="button_delete">
+      Delete
+    </button>
+  </body>
+
+  <script>
+    function Check_Data() {
+      let enter_name = document.getElementById("input_name").value;
+      let api = "http://localhost:9000/student/" + enter_name;
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          let _res_data = xhttp.responseText;
+          let _json_data = JSON.parse(_res_data);
+          let _length = _json_data.length;
+
+          if (_length == 1) {
+            document.getElementById("button_delete").disabled = false;
+          } else {
+            alert("ไม่มีชื่อนี้อยู่ในฐานข้อมูล");
+            document.getElementById("button_delete").disabled = true;
+          }
+        }
+      };
+      xhttp.open("GET", api, true);
+      xhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+      xhttp.send();
+    }
+
+    function Delete_Data() {
+      let _name = document.getElementById("input_name").value;
+
+      const api = "http://localhost:9000/student/" + _name;
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          let _res_data = xhttp.responseText;
+          console.log(_res_data);
+          alert(_res_data);
+        }
+      };
+      xhttp.open("DELETE", api, true);
+      xhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+      xhttp.send();
+    }
+  </script>
+</html>
