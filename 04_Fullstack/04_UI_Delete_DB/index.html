@@ -48,8 +48,8 @@
           // Typical action to be performed when the document is ready:
           all_data_students = JSON.parse(xhttp.responseText);
           console.log(all_data_students);
-          0;
-          for (let i = 0; i < all_data_students.length - 1; i++) {
+
+          for (let i = 0; i < all_data_students.length; i++) {
             let selectBox = document.getElementById("Select_student");
             let newOption = document.createElement("option");
             newOption.value = all_data_students[i].name;
